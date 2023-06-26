@@ -1,0 +1,155 @@
+.menu-hamburguer {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-image: url("../img/Menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*Mudando a posição, apenas, para sair da position static (default) e poder estilizar a 'lista-menu'*/
+    position: relative;
+}
+
+.conteiner {
+    display: flex;
+    align-items: center;
+}
+
+.cabecalho__imagem {
+    padding: 1em;
+}
+
+.lista-menu {
+    /*Faz a lista do menu hamburguer ficar oculta*/
+    display: none;
+    /*Posso modificar a posição do elemento baseado em outro elemento (Pai) que seja diferente de static */
+    position: absolute;
+    /*Indica que é pra ele tirar 100% do elemento que esta acima e ficar logo abaixo do cabecalho.*/
+    top: 100%;
+    width: 15em;
+}
+/*O til (~) no CSS faz uma combinação entre as classes.
+- Quando a classe 'conteiner__botao' estiver com o status 'checked' (Clicado)
+- Aciona as estilizaçõs da classe colocada a seguir
+- No caso a classe 'lista-menu' vai aparecer e ficar sob display block*/
+.conteiner__menu-botao:checked ~ .lista-menu {
+    display: block;
+}
+
+.titulo-menu {
+    color: var(--laranja);
+    font-weight: bold;
+}
+
+.lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+}
+.lista-menu__link {
+    text-decoration: none;
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;;
+    text-transform: uppercase;
+}
+
+.conteiner__menu-botao {
+    display: none;
+}
+
+.lista-menu {
+    box-shadow: var(--sombra);
+}
+/*OBS: > induz ao elemento de dentro*/
+.conteiner__menu-botao:checked ~ .rotulo__menu-hamburguer > .menu-hamburguer {
+    background-image: url("/img/menu-clicado.svg");
+}
+
+/*Fora da versão Mobile*/
+.cabecalho__titulo, .cabecalho__texto, .cabecalho__opcoes {
+    display: none;
+}
+
+/*Layout 1024*/
+@media screen and (min-width: 1024px) {
+    .cabecalho__titulo {
+        display:block;
+        padding: 1.5em 0 1em;
+        font-family: var(--fonte-secundaria);
+        font-size: 30px
+    }
+    .cabecalho__titulo-negrito {
+        font-weight: 700;
+    }
+    .cabecalho__opcoes {
+        display: block;
+        text-transform: uppercase;
+    }
+    .opcoes__lista {
+        display: flex;
+    }
+    .opcao {
+        padding: 0 1em;
+    }
+    .opcao__link {
+        text-decoration: none;
+        color: var(--preto)
+    }
+    .menu-hamburguer, .opcoes__lista__menu, .imagem-favoritos {
+        display: none;
+    }
+
+    .opcoes__lista__menu:checked ~ .lista-menu {
+        display: block;
+        width: auto;
+    }
+    .opcoes__lista__menu:checked ~ .rotulo__opcoes > .opcao {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+    .opcao {
+        padding: 2em 1em;
+    }
+    .lista-menu__item:hover,.lista-menu__link:hover  {
+        background: var(--azul-degrade);
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+        
+    }
+
+}
+
+/*Layout 1728*/
+@media screen and (min-width: 1728px) {
+    .cabecalho__imagem {
+        display: flex;
+        align-items: center;
+        text-decoration: none;  
+        color: var(--preto);
+    }
+    .cabecalho__texto {
+        display: block;
+        padding-left: .5em;
+        font-size: 20px;
+    }
+    .imagem-favoritos {
+        display: none;
+    }
+    .menu-hamburguer {
+        display: none;
+    }
+    /* .cabecalho__opcoes {
+        margin: 1.5em auto 1em 3em;
+    } */
+    .cabecalho {
+        padding: 0 5em;
+    }
+}
+
