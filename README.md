@@ -13,7 +13,7 @@
     <li> HTML e CSS: responsividade com Mobile First</li>
   </ul>
 
-  <img src="/img/alura-plus.jpeg" alt="Preview de como a web page deve ficar">
+  <img src="/img/AluraBooks.JPG" alt="Preview de como a web page deve ficar">
   
   <h3>Tecnologias:</h3>
   <ul>
